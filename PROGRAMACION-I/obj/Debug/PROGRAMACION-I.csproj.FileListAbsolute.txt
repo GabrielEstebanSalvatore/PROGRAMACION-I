@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\bin\Debug\PROGRAMACION-I.exe.config
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\bin\Debug\PROGRAMACION-I.exe
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\bin\Debug\PROGRAMACION-I.pdb
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION-I.csprojAssemblyReference.cache
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.Properties.Resources.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION-I.csproj.GenerateResource.cache
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION-I.exe
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION-I.pdb
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.FormSignIn.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.FormSignUp.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.games.DarVueltas.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.message.ErrorMessage.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.games.Quiniela.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.FormIngresoJuego.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.games.AdivinaLaCarta.resources
