@@ -10,21 +10,29 @@ namespace PROGRAMACION_I.Data
 {
     class DataBase
     {
-        public bool DataContext() {
-            try
-            {
-                SqlConnection Conexion = new SqlConnection(
-                    "Data Source = (localdb)\\MSSQLLocalDB; " +
+        private string CadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " +
                     "Initial Catalog = TableroDeJuegos; " +
                     "Integrated Security = True; Connect Timeout = 30;" +
                     " Encrypt = False; TrustServerCertificate = False;" +
                     " ApplicationIntent = ReadWrite; " +
-                    "MultiSubnetFailover = False");
+                    "MultiSubnetFailover = False";
+        SqlConnection Conexion;
 
+        public SqlConnection EstablecerConexion()
+        {
+            this.Conexion = new SqlConnection(this.CadenaConexion);
+            return this.Conexion;
+        }
+
+        //metodos DELETE, INSERT, UPDATE sin retorno de datos
+        public bool DataContextDIU(string strCommand) {
+            try
+            {
+               
                 SqlCommand command = new SqlCommand();
 
-                command.CommandText = "SELECT * FROM SinglePlayer";
-                command.Connection = Conexion;
+                command.CommandText = strCommand; 
+                command.Connection = this.EstablecerConexion();
                 Conexion.Open();
                 command.ExecuteNonQuery();
                 Conexion.Close();
@@ -35,5 +43,29 @@ namespace PROGRAMACION_I.Data
                 return false;
             }
         }
+
+        //metodo SELECT con retorno de datos
+        public bool DataContextS(string strCommand)
+        {
+            try
+            {
+
+                SqlCommand command = new SqlCommand();
+
+                command.CommandText = strCommand;
+                command.Connection = this.EstablecerConexion();
+                Conexion.Open();
+                command.ExecuteNonQuery();
+                Conexion.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+
     }
 }

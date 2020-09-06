@@ -14,11 +14,15 @@ namespace PROGRAMACION_I
 {
     public partial class FormSignUp : Form
     {
+        SinglePlayerDC oSinglePlayerDC;
         int Id = 0;
+
         public FormSignUp()
         {
+            oSinglePlayerDC = new SinglePlayerDC();
             InitializeComponent();
         }
+
         private void CreatedSinglePlayer()
         {
             
@@ -38,12 +42,13 @@ namespace PROGRAMACION_I
         private void button1_Click(object sender, EventArgs e)
         {
             CreatedSinglePlayer();
-            DataBase connection = new DataBase();
             string text = "Conectado..";
-            ErrorMessage errorMessage = new ErrorMessage(text + connection.DataContext());
+            ErrorMessage errorMessage = new ErrorMessage(text+ oSinglePlayerDC.Add()); 
             errorMessage.Visible = true;
 
             
         }
     }
 }
+
+

@@ -26,20 +26,36 @@ namespace PROGRAMACION_I.games
             pictureBox.Image = Image.FromFile(@"C:\Users\user\Desktop\TEC-PROGRAMACION\FOTOS\logo-animado.gif");
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
+
         static void Mezclar(int[]numerosPremiados)
         {
             Random random = new Random();
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 1; i < 2; i++)
             {
-                numerosPremiados[i] = random.Next(0, 30);
+                numerosPremiados[i] = random.Next(1, 3);
                 //ErrorMessage premioAcer = new ErrorMessage(i + 1 + "Premios en: " + numerosPremiados[i]);
                 //premioAcer.Visible = true;
             }
             ErrorMessage premioAcer = new ErrorMessage( "Premios en: " + numerosPremiados[1]);
             premioAcer.Visible = true;
         }
+        
+        private void checkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            numeroApostado = ((CheckBox)sender).Checked ? int.Parse(((CheckBox)sender).Text) : numeroApostado;
+            
+        }
 
+        public IEnumerable<Control> GetRecursiveAll(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<Control>();
+            return controls.SelectMany(ctrl => GetRecursiveAll(ctrl, type))
+                                    .Concat(controls)
+                                    .Where(c => c.GetType() == type);
+        }
+        
 
         private void AceptarApuesta_Click(object sender, EventArgs e)
         {
@@ -48,36 +64,6 @@ namespace PROGRAMACION_I.games
             apuesta = int.Parse(txtApuesta.Text);
             intentos++;
 
-            if(checkBox1.Checked == true && checkBox1.Enabled == true)
-            {
-                checkBox1.Checked = true;
-                checkBox1.Enabled = false;
-                numeroApostado = 1;
-            }
-            if (checkBox2.Checked == true && checkBox2.Enabled == true)
-            {
-                checkBox2.Checked = true;
-                checkBox2.Enabled = false;
-                numeroApostado = 2;
-            }
-            if (checkBox3.Checked == true && checkBox3.Enabled == true)
-            {
-                checkBox3.Checked = true;
-                checkBox3.Enabled = false;
-                numeroApostado = 3;
-            }
-            if (checkBox4.Checked == true && checkBox4.Enabled == true)
-            {
-                checkBox4.Checked = true;
-                checkBox4.Enabled = false;
-                numeroApostado = 4;
-            }
-            if (checkBox5.Checked == true && checkBox5.Enabled == true)
-            {
-                checkBox1.Checked = true;
-                checkBox1.Enabled = false;
-                numeroApostado = 5;
-            }
 
             if (numeroApostado <= 0 || numeroApostado > 30)
             {
@@ -96,6 +82,14 @@ namespace PROGRAMACION_I.games
                         ErrorMessage premioAcer = new ErrorMessage("Felicidades, acertaste en el primer intento con el número "+ premioAcertado + ", ganaste $"+ apuesta * 10);
                         premioAcer.Visible = true;
                         intentos = 0;
+                        foreach (var chebos in GetRecursiveAll(this, typeof(CheckBox)))
+                        {
+                            ((CheckBox)chebos).Checked = false;
+                        }
+                        foreach (var tebos in GetRecursiveAll(this, typeof(TextBox)))
+                        {
+                            ((TextBox)tebos).Text = "";
+                        }
                         Mezclar(numerosPremiados);
                         break;
                     }
@@ -106,6 +100,14 @@ namespace PROGRAMACION_I.games
                         ErrorMessage premioAcer = new ErrorMessage("Felicidades, acertaste en el " + intentos + " intento. Número premiado "+ premioAcertado + ", ganaste $"+ apuesta * 3 );
                         premioAcer.Visible = true;
                         intentos = 0;
+                        foreach (var chebos in GetRecursiveAll(this, typeof(CheckBox)))
+                        {
+                            ((CheckBox)chebos).Checked = false;
+                        }
+                        foreach (var tebos in GetRecursiveAll(this, typeof(TextBox)))
+                        {
+                            ((TextBox)tebos).Text = "";
+                        }
                         Mezclar(numerosPremiados);
                         break;
 

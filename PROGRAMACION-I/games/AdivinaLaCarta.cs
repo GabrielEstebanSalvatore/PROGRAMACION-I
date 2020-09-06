@@ -13,30 +13,30 @@ namespace PROGRAMACION_I.games
     public partial class AdivinaLaCarta : Form
     {
         int intentos=1, cartaSigiente, cartaActual;
-        int[] baraja1 = new int[48];
+        int[] baraja = new int[48];
         int contador = 1;
         int carta = 0;
 
         public AdivinaLaCarta()
         {
             InitializeComponent();
-            GenerarBaraja(ref baraja1, ref carta, contador);
-            MezclarBaraja(baraja1);
+            GenerarBaraja(ref baraja, ref carta, contador);
+            MezclarBaraja(baraja);
 
             cartaActual = 1;
             cartaSigiente = 2;
-
-            textCartaActual.Text = baraja1[cartaActual].ToString();
+            labelCartaActual.Text = baraja[cartaActual].ToString();
+          
         }
 
-        static void GenerarBaraja(ref int[] baraja1, ref int carta, int contador)
+        static void GenerarBaraja(ref int[] baraja, ref int carta, int contador)
         {
             
             for (int i = 1; i <= 12; i++)
             {
                 for (int b = 1; b <= 4; b++)
                 {
-                    baraja1[carta] = contador;
+                    baraja[carta] = contador;
                     carta = carta + 1;
                 }
                 contador = contador + 1;
@@ -44,59 +44,63 @@ namespace PROGRAMACION_I.games
     
         }
 
-        static void MezclarBaraja(int[] baraja1)
+        static void MezclarBaraja(int[] baraja)
         {
             var seed = Environment.TickCount;
             Random random = new Random(seed);
             int auxiliar;
             int posicion;
 
-            for (int i = 0; i < baraja1.Length; i++)
+            for (int i = 0; i < baraja.Length; i++)
             {
-                posicion = random.Next(0, baraja1.Length);
-                auxiliar = baraja1[posicion];
-                baraja1[posicion] = baraja1[i];
-                baraja1[i] = auxiliar;
+                posicion = random.Next(0, baraja.Length);
+                auxiliar = baraja[posicion];
+                baraja[posicion] = baraja[i];
+                baraja[i] = auxiliar;
             }
         }
 
+        
+
         private void btnAdvMayor_Click(object sender, EventArgs e)
         {
-            if (baraja1[cartaActual] < baraja1[cartaSigiente])
+            if (baraja[cartaActual] < baraja[cartaSigiente])
             {
-                MessageBox.Show("Muy bien, salió el naipe N°"+ baraja1[cartaSigiente]);
+                MessageBox.Show("Muy bien, salió el naipe N°"+ baraja[cartaSigiente]);
                 cartaActual = cartaActual + 1;
                 cartaSigiente = cartaSigiente + 1;
                 intentos++;
             }
             else
             {
-                MessageBox.Show("Salió el naipe N° "+baraja1[cartaSigiente]
+                MessageBox.Show("Salió el naipe N° "+baraja[cartaSigiente]
                     +" y la carta es menor. Perdiste despúes de "+intentos+" intentos");
                 intentos = 0;
 
             }
-            MezclarBaraja(baraja1);
-            textCartaActual.Text = baraja1[cartaActual].ToString();
+            MezclarBaraja(baraja);
+            labelCartaActual.Text = baraja[cartaActual].ToString();
+      
 
         }
         private void btnAdvMenor_Click(object sender, EventArgs e)
         {
-            if (baraja1[cartaActual] > baraja1[cartaSigiente])
+            if (baraja[cartaActual] > baraja[cartaSigiente])
             {
-                MessageBox.Show("Muy bien, salió el naipe N°" + baraja1[cartaSigiente]);
+                MessageBox.Show("Muy bien, salió el naipe N°" + baraja[cartaSigiente]);
                 cartaActual = cartaActual + 1;
                 cartaSigiente = cartaSigiente + 1;
                 intentos++;
             }
             else
             {
-                MessageBox.Show("Salió el naipe N°" + baraja1[cartaSigiente] 
+                MessageBox.Show("Salió el naipe N°" + baraja[cartaSigiente] 
                     + "y la carta es mayor. Perdiste despúes de "+ intentos+" intentos");
                 intentos = 0;
             }
-            MezclarBaraja(baraja1);
-            textCartaActual.Text = baraja1[cartaActual].ToString();
+            MezclarBaraja(baraja);
+            labelCartaActual.Text = baraja[cartaActual].ToString();
+
         }
 
 

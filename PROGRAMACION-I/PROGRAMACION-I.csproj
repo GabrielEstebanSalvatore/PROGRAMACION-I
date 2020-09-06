@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Data\DataBase.cs" />
     <Compile Include="Data\SinglePlayer.cs" />
+    <Compile Include="Data\SinglePlayerDC.cs" />
     <Compile Include="FormIngresoJuego.cs">
       <SubType>Form</SubType>
     </Compile>

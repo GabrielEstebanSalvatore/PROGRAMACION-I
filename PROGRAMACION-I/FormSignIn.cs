@@ -44,5 +44,10 @@ namespace PROGRAMACION_I
             AdivinaLaCarta adivinaLaCarta = new AdivinaLaCarta();
             adivinaLaCarta.Visible = true;
         }
+
+        private void btnIngreso_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

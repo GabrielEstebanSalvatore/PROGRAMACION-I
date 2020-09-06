@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnIngreso = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxQuiniela = new System.Windows.Forms.PictureBox();
@@ -51,14 +51,15 @@
             this.textBox1.Size = new System.Drawing.Size(280, 20);
             this.textBox1.TabIndex = 2;
             // 
-            // button1
+            // btnIngreso
             // 
-            this.button1.Location = new System.Drawing.Point(182, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 55);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "INGRESAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIngreso.Location = new System.Drawing.Point(182, 105);
+            this.btnIngreso.Name = "btnIngreso";
+            this.btnIngreso.Size = new System.Drawing.Size(135, 55);
+            this.btnIngreso.TabIndex = 3;
+            this.btnIngreso.Text = "INGRESAR";
+            this.btnIngreso.UseVisualStyleBackColor = true;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
             // 
             // label1
             // 
@@ -150,7 +151,7 @@
             this.Controls.Add(this.pictureBoxQuiniela);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnIngreso);
             this.Controls.Add(this.textBox1);
             this.MaximizeBox = false;
             this.Name = "FormSignIn";
@@ -166,7 +167,7 @@
 
         #endregion
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnIngreso;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBoxQuiniela;
