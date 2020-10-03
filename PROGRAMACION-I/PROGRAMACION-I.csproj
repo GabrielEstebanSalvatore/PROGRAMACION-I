@@ -46,9 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\DataBase.cs" />
-    <Compile Include="Data\SinglePlayer.cs" />
-    <Compile Include="Data\SinglePlayerDC.cs" />
+    <Compile Include="OpenChildForm.cs" />
+    <Compile Include="Player\AdivinaCartaScore.cs" />
+    <Compile Include="Player\DarVueltaScore.cs" />
+    <Compile Include="Player\QuinielaScore.cs" />
+    <Compile Include="Player\SinglePlayer.cs" />
+    <Compile Include="Data\SinglePlayerDB.cs" />
     <Compile Include="FormIngresoJuego.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormIngresoJuego.resx">
       <DependentUpon>FormIngresoJuego.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,13 +129,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

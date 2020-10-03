@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROGRAMACION_I.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,25 @@ namespace PROGRAMACION_I.games
 {
     public partial class AdivinaLaCarta : Form
     {
-        int intentos=1, cartaSigiente, cartaActual;
+        //SinglePlayerDB oSinglePlayerDC;
+        SinglePlayer sp;
+        int intentos=1, cartaSigiente, cartaActual, contador = 1, carta = 0;
         int[] baraja = new int[48];
-        int contador = 1;
-        int carta = 0;
+     
 
         public AdivinaLaCarta()
         {
+            if (Properties.Settings.Default.currentPlayer == null)
+            {
+                this.Hide();
+                return;
+            }
             InitializeComponent();
             GenerarBaraja(ref baraja, ref carta, contador);
             MezclarBaraja(baraja);
-
+            lblNameSp.Text = "Bienvenido: " + Properties.Settings.Default.currentPlayer.Name;
+            sp = Properties.Settings.Default.currentPlayer;
+            
             cartaActual = 1;
             cartaSigiente = 2;
             labelCartaActual.Text = baraja[cartaActual].ToString();
@@ -75,6 +84,7 @@ namespace PROGRAMACION_I.games
             {
                 MessageBox.Show("Salió el naipe N° "+baraja[cartaSigiente]
                     +" y la carta es menor. Perdiste despúes de "+intentos+" intentos");
+                new SinglePlayerDB().AddScoreAdivinaCarta(sp, intentos);
                 intentos = 0;
 
             }
@@ -96,6 +106,7 @@ namespace PROGRAMACION_I.games
             {
                 MessageBox.Show("Salió el naipe N°" + baraja[cartaSigiente] 
                     + "y la carta es mayor. Perdiste despúes de "+ intentos+" intentos");
+                new SinglePlayerDB().AddScoreAdivinaCarta(sp, intentos);
                 intentos = 0;
             }
             MezclarBaraja(baraja);

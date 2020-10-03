@@ -1,12 +1,11 @@
-﻿using PROGRAMACION_I.message;
+﻿using PROGRAMACION_I.Data;
+using PROGRAMACION_I.message;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PROGRAMACION_I.games
@@ -16,16 +15,24 @@ namespace PROGRAMACION_I.games
         int numeroApostado, premioAcertado, apuesta, intentos=0;
         int[] numerosPremiados = new int[5];
         Random random = new Random();
+        SinglePlayer sp;
  
         public Quiniela()
         {
+            if (!Properties.Settings.Default.userSignedIn)
+            {
+                this.Hide();
+                return;
+            }
+           
             InitializeComponent();
-            //MessageBox.Show();
             Mezclar(numerosPremiados);
-
+            lblNameSp.Text = "Bienvenido: " + Properties.Settings.Default.currentPlayer.Name;
+            sp = Properties.Settings.Default.currentPlayer;
             pictureBox.Image = Image.FromFile(@"C:\Users\user\Desktop\TEC-PROGRAMACION\FOTOS\logo-animado.gif");
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
+
 
 
         static void Mezclar(int[]numerosPremiados)
@@ -35,17 +42,15 @@ namespace PROGRAMACION_I.games
             for (int i = 1; i < 2; i++)
             {
                 numerosPremiados[i] = random.Next(1, 3);
-                //ErrorMessage premioAcer = new ErrorMessage(i + 1 + "Premios en: " + numerosPremiados[i]);
-                //premioAcer.Visible = true;
             }
             ErrorMessage premioAcer = new ErrorMessage( "Premios en: " + numerosPremiados[1]);
             premioAcer.Visible = true;
+
         }
         
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            numeroApostado = ((CheckBox)sender).Checked ? int.Parse(((CheckBox)sender).Text) : numeroApostado;
-            
+            numeroApostado = ((CheckBox)sender).Checked ? int.Parse(((CheckBox)sender).Text) : numeroApostado;            
         }
 
         public IEnumerable<Control> GetRecursiveAll(Control control, Type type)
@@ -56,73 +61,65 @@ namespace PROGRAMACION_I.games
                                     .Where(c => c.GetType() == type);
         }
         
-
         private void AceptarApuesta_Click(object sender, EventArgs e)
         {
-           
-            //numeroApostado = int.Parse(txtNumeroApostar.Text);
+
+            if (txtApuesta.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un monto a apostar");
+                return;
+            }
             apuesta = int.Parse(txtApuesta.Text);
+
             intentos++;
 
-
-            if (numeroApostado <= 0 || numeroApostado > 30)
+            for (int i = 0; i < 5; i++)
             {
-
-                MessageBox.Show( "DEBES INGRESAR UN VALOR ENTRE 1 y 30");
- 
-            }
-            else 
-            {
-                for (int i = 0; i < 5; i++)
-                {
                    
-                    if (intentos == 1 && numerosPremiados[i] == numeroApostado)
+                if (intentos == 1 && numerosPremiados[i] == numeroApostado)
+                {
+                    premioAcertado = numerosPremiados[i];
+                    MessageBox.Show("Felicidades, acertaste en el primer intento con el número " + premioAcertado + ", ganaste $"+ apuesta * 10);
+                  
+                    new SinglePlayerDB().AddScoreQuiniela(sp, intentos);
+                    intentos = 0;
+                    foreach (var checkBox in GetRecursiveAll(this, typeof(CheckBox)))
                     {
-                        premioAcertado = numerosPremiados[i];
-                        ErrorMessage premioAcer = new ErrorMessage("Felicidades, acertaste en el primer intento con el número "+ premioAcertado + ", ganaste $"+ apuesta * 10);
-                        premioAcer.Visible = true;
-                        intentos = 0;
-                        foreach (var chebos in GetRecursiveAll(this, typeof(CheckBox)))
-                        {
-                            ((CheckBox)chebos).Checked = false;
-                        }
-                        foreach (var tebos in GetRecursiveAll(this, typeof(TextBox)))
-                        {
-                            ((TextBox)tebos).Text = "";
-                        }
-                        Mezclar(numerosPremiados);
-                        break;
+                        ((CheckBox)checkBox).Checked = false;
                     }
-
-                    if (intentos != 1 && numerosPremiados[i] == numeroApostado)
+                    foreach (var checkBox in GetRecursiveAll(this, typeof(TextBox)))
                     {
-                        premioAcertado = numerosPremiados[i];
-                        ErrorMessage premioAcer = new ErrorMessage("Felicidades, acertaste en el " + intentos + " intento. Número premiado "+ premioAcertado + ", ganaste $"+ apuesta * 3 );
-                        premioAcer.Visible = true;
-                        intentos = 0;
-                        foreach (var chebos in GetRecursiveAll(this, typeof(CheckBox)))
-                        {
-                            ((CheckBox)chebos).Checked = false;
-                        }
-                        foreach (var tebos in GetRecursiveAll(this, typeof(TextBox)))
-                        {
-                            ((TextBox)tebos).Text = "";
-                        }
-                        Mezclar(numerosPremiados);
-                        break;
-
+                        ((TextBox)checkBox).Text = "";
                     }
-                    if (i == 4)
-                    {
-                        MessageBox.Show("No ganaste ningun premio, vuelve a intentarlo");
-                        break;
-                    }
-
-             
+                    Mezclar(numerosPremiados);
+                    break;
                 }
 
+                if (intentos != 1 && numerosPremiados[i] == numeroApostado)
+                {
+                    premioAcertado = numerosPremiados[i];
+                    MessageBox.Show("Felicidades, acertaste en el " + intentos + " intento. Número premiado "+ premioAcertado + ", ganaste $"+ apuesta * 3 );
+                    new SinglePlayerDB().AddScoreQuiniela(sp, intentos);
+                    intentos = 0;
 
+                    foreach (var checkBox in GetRecursiveAll(this, typeof(CheckBox)))
+                    {
+                        ((CheckBox)checkBox).Checked = false;
+                    }
+                    foreach (var checkBox in GetRecursiveAll(this, typeof(TextBox)))
+                    {
+                        ((TextBox)checkBox).Text = "";
+                    }
+                    Mezclar(numerosPremiados);
+                    break;
 
+                }
+                if (i == 4)
+                {
+                    MessageBox.Show("No ganaste ningun premio, vuelve a intentarlo");
+                    break;
+                }
+ 
             }
         }
     }

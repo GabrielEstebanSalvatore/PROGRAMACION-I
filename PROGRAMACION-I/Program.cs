@@ -17,6 +17,9 @@ namespace PROGRAMACION_I
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormIngresoJuego());
+           
+
+
         }
     }
 }

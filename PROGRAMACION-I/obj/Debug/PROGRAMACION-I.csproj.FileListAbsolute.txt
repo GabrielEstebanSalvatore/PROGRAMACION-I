@@ -13,3 +13,4 @@ C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_
 C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.games.Quiniela.resources
 C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.FormIngresoJuego.resources
 C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.games.AdivinaLaCarta.resources
+C:\Users\user\source\repos\PROGRAMACION-I\PROGRAMACION-I\obj\Debug\PROGRAMACION_I.Admin.resources

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using PROGRAMACION_I.Data;
+
 namespace PROGRAMACION_I.Properties
 {
 
@@ -18,6 +20,8 @@ namespace PROGRAMACION_I.Properties
     {
 
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        internal SinglePlayer currentPlayer;
+        internal bool userSignedIn;
 
         public static Settings Default
         {
