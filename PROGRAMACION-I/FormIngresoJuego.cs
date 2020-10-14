@@ -20,8 +20,8 @@ namespace PROGRAMACION_I
             hideSubMenu();
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-
         }
+
         private void OpenChildForm(Form childForm)
         {
 
@@ -39,39 +39,6 @@ namespace PROGRAMACION_I
             childForm.Show();
            
         }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMax_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Maximized;
-            btnMax.Visible = false;
-            btnRes.Visible = true;
-        }
-
-        private void btnMin_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnRes_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Normal;
-            btnMax.Visible = true;
-            btnRes.Visible = false;
-        }
-
-        private void btnSignUp_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormSignUp());
-        }
-
-        private void btnSignIn_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormSignIn());
-        }
 
         private void hideSubMenu()
         {
@@ -81,6 +48,16 @@ namespace PROGRAMACION_I
         private void btnGames_Click(object sender, EventArgs e)
         {
             panelGames.Visible = true;
+        }
+       
+        private void btnSignUp_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormSignUp());
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormSignIn());
         }
 
         private void btnAdivinaCarta_Click(object sender, EventArgs e)
@@ -100,6 +77,28 @@ namespace PROGRAMACION_I
         private void btnAdmin_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Admin());
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Maximized;
+            btnMax.Visible = false;
+            btnRes.Visible = true;
+        }
+
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+        private void btnRes_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            btnMax.Visible = true;
+            btnRes.Visible = false;
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

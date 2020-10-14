@@ -77,22 +77,22 @@
     <Compile Include="FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="games\AdivinaLaCarta.cs">
+    <Compile Include="Games\AdivinaLaCarta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="games\AdivinaLaCarta.Designer.cs">
+    <Compile Include="Games\AdivinaLaCarta.Designer.cs">
       <DependentUpon>AdivinaLaCarta.cs</DependentUpon>
     </Compile>
-    <Compile Include="games\DarVueltas.cs">
+    <Compile Include="Games\DarVueltas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="games\DarVueltas.Designer.cs">
+    <Compile Include="Games\DarVueltas.Designer.cs">
       <DependentUpon>DarVueltas.cs</DependentUpon>
     </Compile>
-    <Compile Include="games\Quiniela.cs">
+    <Compile Include="Games\Quiniela.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="games\Quiniela.Designer.cs">
+    <Compile Include="Games\Quiniela.Designer.cs">
       <DependentUpon>Quiniela.cs</DependentUpon>
     </Compile>
     <Compile Include="message\ErrorMessage.cs">
@@ -115,13 +115,13 @@
     <EmbeddedResource Include="FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="games\AdivinaLaCarta.resx">
+    <EmbeddedResource Include="Games\AdivinaLaCarta.resx">
       <DependentUpon>AdivinaLaCarta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="games\DarVueltas.resx">
+    <EmbeddedResource Include="Games\DarVueltas.resx">
       <DependentUpon>DarVueltas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="games\Quiniela.resx">
+    <EmbeddedResource Include="Games\Quiniela.resx">
       <DependentUpon>Quiniela.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="message\ErrorMessage.resx">

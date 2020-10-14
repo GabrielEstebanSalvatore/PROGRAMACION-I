@@ -12,7 +12,7 @@ namespace PROGRAMACION_I.Data
 {
     class DataBase
     {
-        private string CadenaConexion = "Data Source = (localdb)\\MSSQLLocalDB; " +
+        private string CadenaConexion = "Data Source = (localdb); " +
                     "Initial Catalog = TableroDeJuegos; " +
                     "Integrated Security = True; Connect Timeout = 30;" +
                     " Encrypt = False; TrustServerCertificate = False;" +
@@ -122,12 +122,9 @@ namespace PROGRAMACION_I.Data
                 ErrorMessage errorMessage = new ErrorMessage(e.ToString());
                 errorMessage.Visible = true;
                 throw e;
-
-              
             }
 
         }
-
 
         public List<QuinielaScore> DataContextListQuiniela(SqlCommand sqlCommand)
         {
@@ -234,45 +231,3 @@ namespace PROGRAMACION_I.Data
 
     }
 }
-/*
- 
-     table = new DataTable();
-            table.Columns.Add("Nombre");
-            table.Columns.Add("Score");
-            dataGridView1.DataSource = table;
-
-            var QuinielaList = oSinglePlayerDC.DataContextListQuiniela(int.Parse(data["id"].ToString()));
-            foreach (var item in QuinielaList)
-            {
-                DataRow fila = table.NewRow();
-                fila["Nombre"] = item.SinglePlayer;
-                fila["Score"] = item.Score;
-                table.Rows.Add(fila);
-            }
-
-            table2 = new DataTable();
-            table2.Columns.Add("Nombre");
-            table2.Columns.Add("Score");
-            dataGridView2.DataSource = table2;
-            var DarVueltaList = oSinglePlayerDC.DataContextListDarVueltas(int.Parse(data["id"].ToString()));
-            foreach (var item in DarVueltaList)
-            {
-                DataRow fila = table2.NewRow();
-                fila["Nombre"] = item.SinglePlayer;
-                fila["Score"] = item.Score;
-                table2.Rows.Add(fila);
-            }
-
-            table3 = new DataTable();
-            table3.Columns.Add("Nombre");
-            table3.Columns.Add("Score");
-            dataGridView3.DataSource = table3;
-            var AdivinaLaCartaList = oSinglePlayerDC.DataContextListDarVueltas(int.Parse(data["id"].ToString()));
-            foreach (var item in AdivinaLaCartaList)
-            {
-                DataRow fila = table3.NewRow();
-                fila["Nombre"] = item.SinglePlayer;
-                fila["Score"] = item.Score;
-                table3.Rows.Add(fila);
-            }
-     */

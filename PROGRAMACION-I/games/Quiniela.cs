@@ -14,7 +14,6 @@ namespace PROGRAMACION_I.games
     {
         int numeroApostado, premioAcertado, apuesta, intentos=0;
         int[] numerosPremiados = new int[5];
-        Random random = new Random();
         SinglePlayer sp;
  
         public Quiniela()
@@ -32,8 +31,6 @@ namespace PROGRAMACION_I.games
             pictureBox.Image = Image.FromFile(@"C:\Users\user\Desktop\TEC-PROGRAMACION\FOTOS\logo-animado.gif");
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-
-
 
         static void Mezclar(int[]numerosPremiados)
         {
@@ -69,6 +66,7 @@ namespace PROGRAMACION_I.games
                 MessageBox.Show("Debe ingresar un monto a apostar");
                 return;
             }
+
             apuesta = int.Parse(txtApuesta.Text);
 
             intentos++;

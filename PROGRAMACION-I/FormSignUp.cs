@@ -17,8 +17,6 @@ namespace PROGRAMACION_I
             dataGridView1.DataSource = oSinglePlayerDC.ShowPlayer().Tables[0];
         }
 
-
-
         private SinglePlayer CreatedSinglePlayer()
         {
 
@@ -29,7 +27,8 @@ namespace PROGRAMACION_I
             return singlePlayer;
 
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
             var playerExist = oSinglePlayerDC.ShowPlayer(txtNameOfPlayer.Text); 
          
@@ -44,14 +43,13 @@ namespace PROGRAMACION_I
 
         }
 
-
         private void Seleccionar(object sender, DataGridViewCellMouseEventArgs e)
         {
             indice = e.RowIndex;
 
             currentID = int.Parse(dataGridView1.Rows[indice].Cells[0].Value.ToString());
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void btnBorrar_Click(object sender, EventArgs e)
         {
      
             oSinglePlayerDC.Delete(currentID);

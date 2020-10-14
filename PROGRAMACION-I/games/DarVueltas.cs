@@ -70,10 +70,7 @@ namespace PROGRAMACION_I.games
             else
             {
                 int indice = numeroIngresado - 1;
-                //PINTO ARRAY MODIFICADO POR USUARIO
-                /*auxiliar = BOCALES[variable];
-                BOCALES[variable] = BOCALES[0];
-                BOCALES[0] = auxiliar;*/
+             
 
                 int[] BOCALES2 = new int[numeroIngresado];
 
