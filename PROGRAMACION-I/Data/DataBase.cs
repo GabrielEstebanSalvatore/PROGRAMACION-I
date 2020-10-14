@@ -12,8 +12,7 @@ namespace PROGRAMACION_I.Data
 {
     class DataBase
     {
-        private string CadenaConexion = "Data Source = (localdb); " +
-                    "Initial Catalog = TableroDeJuegos; " +
+        private string CadenaConexion = 
                     "Integrated Security = True; Connect Timeout = 30;" +
                     " Encrypt = False; TrustServerCertificate = False;" +
                     " ApplicationIntent = ReadWrite; " +

@@ -50,7 +50,7 @@ namespace PROGRAMACION_I
             currentID = int.Parse(dataGridView1.Rows[indice].Cells[0].Value.ToString());
         }
         private void btnBorrar_Click(object sender, EventArgs e)
-        {
+        { 
      
             oSinglePlayerDC.Delete(currentID);
             dataGridView1.DataSource = oSinglePlayerDC.ShowPlayer().Tables[0];

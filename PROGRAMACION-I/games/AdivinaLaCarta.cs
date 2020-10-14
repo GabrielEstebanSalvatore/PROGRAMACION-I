@@ -109,7 +109,7 @@ namespace PROGRAMACION_I.games
                 new SinglePlayerDB().AddScoreAdivinaCarta(sp, intentos);
                 intentos = 0;
             }
-            MezclarBaraja(baraja);
+            MezclarBaraja(baraja); 
             labelCartaActual.Text = baraja[cartaActual].ToString();
 
         }

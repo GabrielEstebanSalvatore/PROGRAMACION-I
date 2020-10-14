@@ -8,7 +8,7 @@ namespace PROGRAMACION_I.Data
         public SinglePlayer()
         {
 
-        }
+        } 
         public SinglePlayer(string Name)
         {
             this.Name = Name;

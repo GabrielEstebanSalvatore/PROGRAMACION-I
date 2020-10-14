@@ -26,7 +26,7 @@ namespace PROGRAMACION_I.Data
             return 1;
         }
 
-        public DataSet ShowPlayer()
+        public DataSet ShowPlayer() 
         {
             SqlCommand sentencia = new SqlCommand("SELECT * FROM SinglePlayer");
             return connection.DataContextS(sentencia);

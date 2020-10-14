@@ -9,7 +9,7 @@ namespace PROGRAMACION_I
 
         SinglePlayerDB oSinglePlayerDC;
         int currentID, indice;
-
+         
         public Admin()
         {
             InitializeComponent();

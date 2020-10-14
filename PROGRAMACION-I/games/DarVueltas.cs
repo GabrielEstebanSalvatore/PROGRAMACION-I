@@ -81,7 +81,7 @@ namespace PROGRAMACION_I.games
 
                 }
                 for (int i = 0; i < numeroIngresado; i++)
-                {
+                { 
                     BOCALES[i] = BOCALES2[i];
                 }
 

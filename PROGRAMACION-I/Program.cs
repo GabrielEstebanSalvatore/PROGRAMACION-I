@@ -19,7 +19,7 @@ namespace PROGRAMACION_I
             Application.Run(new FormIngresoJuego());
            
 
-
+             
         }
     }
 }

@@ -9,3 +9,4 @@ namespace PROGRAMACION_I.Player
         public int Score { get; set; }
     }
 }
+ 

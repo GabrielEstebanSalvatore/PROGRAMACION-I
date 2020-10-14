@@ -13,7 +13,7 @@ namespace PROGRAMACION_I
             InitializeComponent();
             OpenChildForm(new FormSignUp());
             btnRes.Visible = false;
-        }
+        } 
 
         private void FormIngresoJuego_Load(object sender, EventArgs e)
         {

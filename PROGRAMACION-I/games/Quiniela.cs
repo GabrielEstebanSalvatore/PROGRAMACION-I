@@ -112,7 +112,7 @@ namespace PROGRAMACION_I.games
                     break;
 
                 }
-                if (i == 4)
+                if (i == 4) 
                 {
                     MessageBox.Show("No ganaste ningun premio, vuelve a intentarlo");
                     break;
